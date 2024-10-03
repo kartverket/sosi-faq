@@ -1,0 +1,37 @@
+# nonk8s
+apiVersion: "backstage.io/v1alpha1"
+kind: "Component"
+metadata:
+  name: "sosi-faq"
+  tags:
+  - "public"
+spec:
+  type: "documentation"
+  lifecycle: "production"
+  owner: "standardisering"
+---
+apiVersion: "backstage.io/v1alpha1"
+kind: "Group"
+metadata:
+  name: "security_champion_sosi-faq"
+  title: "Security Champion sosi-faq"
+spec:
+  type: "security_champion"
+  parent: "it_security_champions"
+  members:
+  - "toreJohnsen"
+  children:
+  - "resource:sosi-faq"
+---
+apiVersion: "backstage.io/v1alpha1"
+kind: "Resource"
+metadata:
+  name: "sosi-faq"
+  links:
+  - url: "https://github.com/kartverket/sosi-faq"
+    title: "sosi-faq på GitHub"
+spec:
+  type: "repo"
+  owner: "security_champion_sosi-faq"
+  dependencyOf:
+  - "component:sosi-faq"
